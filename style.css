@@ -1,0 +1,53 @@
+#playButton {
+    width: 200px;
+    height: 80px;
+    background: #BFBD9F;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 6px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+#playButton:hover {
+    background: #B8CED3;
+    cursor: pointer;
+}
+
+#playButtonText {
+    font-size: 32px;
+    position: absolute;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.block {
+    width: 120px;
+    height: 40px;
+    border-style: solid;
+    border-width: 4px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 0;
+    animation: fall 8s linear 0s infinite;
+}
+
+.blocktext {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+@keyframes fall {
+    0% {
+        top: -5%;
+    }
+    100% {
+        top: 72%;
+    }
+}
