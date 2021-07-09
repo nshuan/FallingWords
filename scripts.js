@@ -7,8 +7,28 @@ var started = false, created = false, firstwave = false;
 var subcount = 0;
 var correctword = 0;
 var incorrectword = 0;
+var score = 0;
+var over = true;
+var inputupdate;
+var checkstate;
+var cr;
 
 function play() {
+    blocklist = [];
+    var count = 0;
+    n = 8;
+    started = false; created = false; firstwave = false;
+    subcount = 0;
+    correctword = 0;
+    incorrectword = 0;
+    score = 0;
+    over = false;
+    document.getElementById("gameover").style.display = "none";
+    $('#correct').text("Words: 0");
+    $('#incorrect').text("Mistakes: 0"); 
+    $('#correctnum').text("Words: 0");
+    $('#incorrectnum').text("Mistakes: 0");
+    $(".block").remove();
     var plbtn = document.getElementById("playButton");
     var plgrd = document.getElementById("playground");
     var scbar = document.getElementById("scorebar");
@@ -43,6 +63,52 @@ function randomCaW() {
 
 function start() {
     createblock(8);
+    inputupdate = setInterval(function() {
+        var text = document.getElementById("typetext");
+        var check;
+        if (text.value[text.value.length-1] == " ") {
+            check = text.value.slice(0, text.value.length-1);
+            var bl = document.getElementsByClassName("block");
+            for (var i = 0; i < bl.length; i ++) {
+                if (blocklist[i] == check) {
+                    bl[i].remove();
+                    blocklist.splice(i, 1);
+                    subcount --;
+                    correctword ++;
+                    score += check.length;
+                    check = "0";
+                    break;
+                }
+            }
+            if (check != "0" && check != "") {
+                incorrectword ++; 
+                score -= Math.floor(check.length/2);
+            }
+            $('#correct').text("Words: " + String(correctword));
+            $('#incorrect').text("Mistakes: " + String(incorrectword)); 
+            $('#correctnum').text("Words: " + String(correctword));
+            $('#incorrectnum').text("Mistakes: " + String(incorrectword)); 
+            text.value = "";
+        }
+    }, 1)
+
+    checkstate = setInterval(function() {
+        var bl = document.getElementsByClassName("block");
+        var gameoverboard = document.getElementById("gameover");
+        var scoreshow = document.getElementById("score");
+        var correshow = document.getElementById("correctnum");
+        var incorshow = document.getElementById("incorrectnum");
+        if (bl[0].offsetTop == "-50" && over == false) {
+            $('.block').css('animation-play-state', 'paused');
+            gameoverboard.style.display = "block";
+            $('#scorebar').css({'animation': 'boxin 0.5s linear 0s', 'animation-fill-mode': 'forwards'});
+            if (score < 0) score = 0;
+            scoreshow.innerText = String(score);
+            clearInterval(cr);
+            clearInterval(inputupdate);
+            over = true;
+        }
+    }, 1)
 }
 
 function createbl() {
@@ -64,7 +130,7 @@ function createbl() {
 
 function createblock(x) {
     var subtimer = 0;
-    var cr = setInterval(function() {
+    cr = setInterval(function() {
         if (subcount < x) {
             if (subtimer == 120) {
                 createbl();
@@ -75,6 +141,7 @@ function createblock(x) {
         }
         else {
             var bl = document.getElementsByClassName('block');
+            //$('.block').css('animation-play-state', 'paused');
             bl[0].remove();
             blocklist.shift();
             subcount --;
@@ -83,26 +150,8 @@ function createblock(x) {
     }, 10);
 }
 
-var inputupdate = setInterval(function() {
-    var text = document.getElementById("typetext");
-    var check;
-    if (text.value[text.value.length-1] == " ") {
-        check = text.value.slice(0, text.value.length-1);
-        var bl = document.getElementsByClassName("block");
-        for (var i = 0; i < bl.length; i ++) {
-            if (blocklist[i] == check) {
-                bl[i].remove();
-                blocklist.splice(i, 1);
-                subcount --;
-                correctword ++;
-                check = "0";
-                break;
-            }
-        }
-        if (check != "0" && check != "") incorrectword ++; 
-        $('#correct').text("Words: " + String(correctword));
-        $('#incorrect').text("Mistakes: " + String(incorrectword)); 
-        text.value = "";
-    }
-}, 1)
-
+function mainmenu() {
+    document.getElementById("playButton").style.display = "block";
+    document.getElementById("playground").style.display = "none";
+    document.getElementById("gameover").style.display = "none";
+}

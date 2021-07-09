@@ -14,12 +14,20 @@
     <div id="playground" style="display:none;"></div>
     <div id="scorebar" style="display:none;">
         <div id="point" class="point">
-            <p id="correct">Words:</p>
-            <p id="incorrect">Mistakes:</p>
+            <p id="correct">Words: 0</p>
+            <p id="incorrect">Mistakes: 0</p>
         </div>
         <div id="inputbox" style="float: left;">
             <input type="text" id="typetext" style="border-style:none;">
         </div>
+    </div>
+    <div id="gameover" style="display:none;">
+        <p id="gameovertext" class="gameovertext">GAME OVER</p>
+        <p id="score" class="gameovertext"></p>
+        <p id="correctnum" class="gameovertext">Words: 0</p>
+        <p id="incorrectnum" class="gameovertext">Mistakes: 0</p>
+        <div id="playagain" class="gameoverbutton" onclick="play();">Play again</div>
+        <div id="mainmenu" class="gameoverbutton" onclick="mainmenu();">Main menu</div>
     </div>
 </body>
 </html>

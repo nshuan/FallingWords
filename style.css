@@ -48,7 +48,7 @@
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: -5%;
+    top: -50px;
     animation: fall 8s linear 0s;
 }
 
@@ -70,12 +70,12 @@
 
 #inputbox {
     width: 320px;
-    height: 100px;
+    height: 80px;
     background-color: #BFBD9F;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
-    border-width: 6px;
+    border-width: 4px;
     position: absolute;
     transform: translate(-50%, 0%);
     left: 50%;
@@ -84,7 +84,7 @@
 #typetext {
     background-color: #BFBD9F;
     width: 300px;
-    height: 80px;
+    height: 70px;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -100,7 +100,7 @@
     border-radius: 10px;
     border-style: solid;
     border-color: black;
-    border-width: 6px;
+    border-width: 4px;
     position: absolute;
     left: 0%;
 }
@@ -123,6 +123,105 @@
     right: 0%;
 }
 
+#gameover {
+    width: 400px;
+    height: 400px;
+    background: #B8CED3;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 4px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    animation: appear 0.5s;
+}
+
+.gameovertext {
+    font-family: 'montserrat';
+    text-align: center;
+    position: relative;
+    transform: translate(-50%, -50%);
+    animation-fill-mode: backwards;
+}
+
+#gameovertext {
+    font-size: 42px;
+    font-weight: 900;
+    color: red;
+    left: 50%;
+    top: 5%;
+    animation: textappear 0.5s 0.5s;
+    animation-fill-mode: both;
+}
+
+#score {
+    font-size: 56px;
+    font-weight: 900;
+    color: green;
+    left: 50%;
+    margin: 0;
+    animation: textappear 0.5s 1s;
+    animation-fill-mode: both;
+}
+
+#correctnum {
+    font-size: 24px;
+    font-weight: 900;
+    color: black;
+    left: 50%;
+    margin: 0;
+    animation: textappear 0.5s 1s;
+    animation-fill-mode: both;
+}
+
+#incorrectnum {
+    font-size: 24px;
+    font-weight: 900;
+    color: black;
+    left: 50%;
+    animation: textappear 0.5s 1s;
+    animation-fill-mode: both;
+}
+
+.gameoverbutton {
+    width: 160px;
+    height: 40px;
+    background: #B8CED3;
+    border-style: solid;
+    border-width: 4px;
+    position: absolute;
+
+    font-size: 24px;
+    font-family: 'montserrat';
+    font-weight: bold;
+    text-align: center;
+    padding-top: 8px;
+}
+
+#playagain {
+    border-radius: 10px 0 0 10px;
+    transform: translate(-100%, -50%);
+    bottom: 2%;
+    left: 50%;
+    transition: 0.3s;
+}
+
+#mainmenu {
+    border-radius: 0 10px 10px 0;
+    transform: translate(0%, -50%);
+    bottom: 2%;
+    left: 50%;
+    transition: 0.3s;
+}
+
+.gameoverbutton:hover {
+    cursor: pointer;
+    background: #BFBD9F;
+    transition: 0.3s;
+}
+
+
 @keyframes fall {
     0% {
         top: -5%;
@@ -138,5 +237,37 @@
     }
     100% {
         top: -20px;
+    }
+}
+
+@keyframes boxin {
+    0% {
+        top: -20px;
+    }
+    100% {
+        top: -120px;
+        display: none;
+    }
+}
+
+@keyframes appear {
+    0% {
+        top: 40%;
+        opacity: 0;
+    }
+    100% {
+        top: 50%;
+        opacity: 1.0;
+    }
+}
+
+@keyframes textappear {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+    100% {
+        top: 2%;
+        opacity: 1.0;
     }
 }
