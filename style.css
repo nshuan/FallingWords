@@ -28,13 +28,14 @@
 .block {
     width: 120px;
     height: 40px;
+    border-radius: 5px;
     border-style: solid;
     border-width: 4px;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 0;
-    animation: fall 8s linear 0s infinite;
+    top: -5%;
+    animation: fall 8s linear 0s;
 }
 
 .blocktext {
@@ -43,11 +44,46 @@
     left: 50%;
 }
 
+#inputbox {
+    width: 320px;
+    height: 100px;
+    background-color: #BFBD9F;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 6px;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: -20px;
+}
+
+#typetext {
+    background-color: #BFBD9F;
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    font-size: 32px;
+}
+
 @keyframes fall {
     0% {
         top: -5%;
     }
     100% {
         top: 72%;
+    }
+}
+
+@keyframes boxout {
+    0% {
+        top: -120px;
+    }
+    100% {
+        top: -20px;
     }
 }
