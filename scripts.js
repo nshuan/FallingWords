@@ -3,7 +3,6 @@
 var blocklist = [];
 var count = 0;
 var n = 8;
-var started = false, created = false, firstwave = false;
 var subcount = 0;
 var correctword = 0;
 var incorrectword = 0;
@@ -13,11 +12,15 @@ var inputupdate;
 var checkstate;
 var cr;
 
+function chooselang() {
+    document.getElementById("playButton").style.display = "none";
+    document.getElementById("chooselanguage").style.display = "block";
+}
+
 function play() {
     blocklist = [];
-    var count = 0;
+    count = 0;
     n = 8;
-    started = false; created = false; firstwave = false;
     subcount = 0;
     correctword = 0;
     incorrectword = 0;
@@ -28,11 +31,11 @@ function play() {
     $('#incorrect').text("Mistakes: 0"); 
     $('#correctnum').text("Words: 0");
     $('#incorrectnum').text("Mistakes: 0");
-    $(".block").remove();
+    $('.block').remove();
     var plbtn = document.getElementById("playButton");
     var plgrd = document.getElementById("playground");
     var scbar = document.getElementById("scorebar");
-    plbtn.style.display = "none";
+    document.getElementById("chooselanguage").style.display = "none";
     plgrd.style.display = "block";
     scbar.style.display = "block";
     scbar.style.animation = "boxout 1s linear 0s";

@@ -28,6 +28,35 @@
     font-size: 40px;
 }
 
+.langbut {
+    width: 200px;
+    height: 40px;
+    background: #BFBD9F;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 6px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    transition: 0.3s;
+
+    font-size: 32px;
+    font-family: 'montserrat';
+    font-weight: bold;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.langbut:hover {
+    background: #B8CED3;
+    width: 220px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    font-size: 36px;
+}
+
 #playButtonText {
     font-size: 36px;
     font-family: 'montserrat';

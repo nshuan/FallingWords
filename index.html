@@ -10,7 +10,11 @@
 	<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body background=".\Resources\Background\1.png" style="background-size: 100vw 100vh;">
-    <div id="playButton" onclick="play();">PLAY</div>
+    <div id="playButton" onclick="chooselang();">PLAY</div>
+    <div id="chooselanguage" style="display:none;">
+        <div id="eng" class="langbut" style="top:40%;" onclick="language(0);play();">English</div>
+        <div id="vie" class="langbut" style="top:60%;" onclick="language(1);play();">Tiếng Việt</div>
+    </div>
     <div id="playground" style="display:none;"></div>
     <div id="scorebar" style="display:none;">
         <div id="point" class="point">
