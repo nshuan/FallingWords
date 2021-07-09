@@ -1,6 +1,6 @@
 #playButton {
     width: 200px;
-    height: 80px;
+    height: 60px;
     background: #BFBD9F;
     border-radius: 20px;
     border-style: solid;
@@ -8,16 +8,30 @@
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 50%;
+    top: 40%;
+    transition: 0.3s;
+
+    font-size: 36px;
+    font-family: 'montserrat';
+    font-weight: bold;
+    text-align: center;
+    padding-top: 16px;
 }
 
 #playButton:hover {
     background: #B8CED3;
+    width: 220px;
+    height: 80px;
     cursor: pointer;
+    transition: 0.3s;
+    
+    font-size: 40px;
 }
 
 #playButtonText {
-    font-size: 32px;
+    font-size: 36px;
+    font-family: 'montserrat';
+    font-weight: bold;
     position: absolute;
     margin: 0;
     transform: translate(-50%, -50%);
@@ -44,6 +58,16 @@
     left: 50%;
 }
 
+#scorebar {
+    width: 720px;
+    height: 100px;
+    background: none;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: -20px;
+}
+
 #inputbox {
     width: 320px;
     height: 100px;
@@ -55,7 +79,6 @@
     position: absolute;
     transform: translate(-50%, 0%);
     left: 50%;
-    top: -20px;
 }
 
 #typetext {
@@ -68,6 +91,36 @@
     top: 50%;
     text-align: center;
     font-size: 32px;
+}
+
+.point {
+    width: 720px;
+    height: 60px;
+    background-color: #BFBD9F;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 6px;
+    position: absolute;
+    left: 0%;
+}
+
+#correct {
+    width: 190px;
+    font-family: 'montserrat';
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    left: 1%;
+}
+
+#incorrect {
+    width: 190px;
+    font-family: 'montserrat';
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 0%;
 }
 
 @keyframes fall {

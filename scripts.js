@@ -2,20 +2,20 @@
 
 var blocklist = [];
 var count = 0;
-var rcount = 0;
-var revive = [true, true, true, true, true, true, true, true];
 var n = 8;
 var started = false, created = false, firstwave = false;
 var subcount = 0;
+var correctword = 0;
+var incorrectword = 0;
 
 function play() {
     var plbtn = document.getElementById("playButton");
     var plgrd = document.getElementById("playground");
-    var inpb = document.getElementById("inputbox");
+    var scbar = document.getElementById("scorebar");
     plbtn.style.display = "none";
     plgrd.style.display = "block";
-    inpb.style.display = "block";
-    inpb.style.animation = "boxout 1s linear 0s";
+    scbar.style.display = "block";
+    scbar.style.animation = "boxout 1s linear 0s";
     document.getElementById("typetext").focus();
     start();
 }
@@ -80,7 +80,6 @@ function createblock(x) {
             subcount --;
         }
         subtimer ++;
-        console.log(blocklist);
     }, 10);
 }
 
@@ -95,9 +94,14 @@ var inputupdate = setInterval(function() {
                 bl[i].remove();
                 blocklist.splice(i, 1);
                 subcount --;
+                correctword ++;
+                check = "0";
                 break;
             }
         }
+        if (check != "0" && check != "") incorrectword ++; 
+        $('#correct').text("Words: " + String(correctword));
+        $('#incorrect').text("Mistakes: " + String(incorrectword)); 
         text.value = "";
     }
 }, 1)
