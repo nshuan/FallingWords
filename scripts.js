@@ -262,8 +262,12 @@ function sound() {
 function sandm(x) {
     if (x == 1) {
         soundon = !soundon;
-        if (soundon) document.getElementById('soundbut').innerHTML = "SOUND: ON";
-        else document.getElementById('soundbut').innerHTML = "SOUND: OFF";
+        if (soundon) {
+            document.getElementById('soundbut').innerHTML = "SOUND: ON";
+        }
+        else {
+            document.getElementById('soundbut').innerHTML = "SOUND: OFF";
+        }
     }
     if (x == -1) {
         musicon = !musicon;
