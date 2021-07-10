@@ -10,16 +10,24 @@
     <script type="text/javascript" src="rdword.js"></script>
 	<script type="text/javascript" src="scripts.js"></script>
 </head>
-<body background=".\Resources\Background\1.png" style="background-size: 100vw 100vh;">
-    <audio id="blocksound" preload="metadata">
-        <source src="Resources/Sound/gunshot.mp3"></source>
-    </audio>
+<body background=".\Resources\Background\1.png"style="background-size: 100vw 100vh;">
+    <div id="audio"></div>
+        <audio id="blocksound" preload="metadata">
+            <source src="Resources/Sound/gunshot.mp3"></source>
+        </audio>
+        <audio id="buttonhover" preload="metadata">
+            <source src="Resources/Sound/button.mp3"></source>
+        </audio>
+        <audio id="buttonclick" preload="metadata">
+            <source src="Resources/Sound/button1.mp3"></source>
+        </audio>
+    </div>
     <div id="mainground">
         <div id="playButton" class="mainbutton" style="top: 25%;" onclick="chooselang();">PLAY</div>
         <div id="guideButton" class="mainbutton" style="top: 40%;" onclick="guide();">GUIDE</div>
         <div id="options">
             <div id="optionButton" class="mainbutton" style="top: 55%;" onclick="option();">OPTION</div>
-            <div id="changebackground" class="optionbutton" style="display: none;" onclick="changebackground();">BACKGROUND</div>
+            <div id="changebackground" class="optionbutton" style="display: none;" onclick="changebackground();">THEME</div>
             <div id="next" class="optionbutton" style="display: none" onclick="choosebg(1);">NEXT</div>
             <div id="previous" class="optionbutton" style="display: none" onclick="choosebg(-1);">PREVIOUS</div>
             <div id="sound" class="optionbutton" style="display:none" onclick="sound();">SOUND</div>

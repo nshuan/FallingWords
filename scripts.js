@@ -1,24 +1,26 @@
 'use strict'
 
-
-
-var blocklist = [];
-var count = 0;
-var n = 8;
+var blocklist = [];         // list of blocks on screen
+var count = 0;              // number of blocks has appeared
+var n = 8;                  // max number of blocks on screen
 var subcount = 0;
-var correctword = 0;
-var incorrectword = 0;
-var score = 0;
-var over = true;
-var inputupdate;
-var checkstate;
-var cr;
-var mainbuttap = false;
-var opbuttap = false;
-var smbuttap = false;
-var bgnum = 1;
-var soundon = true;
+var correctword = 0;        // number of words typed correctly
+var incorrectword = 0;      // _____________________ incorrectly
+var score = 0;              
+var over = true;            // check whether the game is over
+var inputupdate;            // interval to check input word
+var checkstate;             // interval to check game state (lost?)
+var cr;                     // interval to create blocks
+var mainbuttap = false;     // check click events of buttons on main screen
+var opbuttap = false;       // check click events of buttons on OPTION screen
+var smbuttap = false;       // check click events of buttons on OPTION/SOUND screen
+var bgnum = 1;              // background
+var soundon = true;         
 var musicon = true;
+
+/* main functions */
+
+// choose language (English/ Vietnamese)
 
 function chooselang() {
     document.getElementById("playButton").style.display = "none";
@@ -27,7 +29,12 @@ function chooselang() {
     document.getElementById("chooselanguage").style.display = "block";
 }
 
+// main function
+
 function play() {
+
+// reset
+
     blocklist = [];
     count = 0;
     n = 8;
@@ -43,7 +50,9 @@ function play() {
     $('#correctnum').text("Words: 0");
     $('#incorrectnum').text("Mistakes: 0");
     $('.block').remove();
-    var plbtn = document.getElementById("playButton");
+
+// choose language and start
+
     var plgrd = document.getElementById("playground");
     var scbar = document.getElementById("scorebar");
     document.getElementById("chooselanguage").style.display = "none";
@@ -53,6 +62,8 @@ function play() {
     document.getElementById("typetext").focus();
     start();
 }
+
+// get random color of blocks and random words
 
 function randomCaW() {
     var colornum = Math.floor(Math.random() * 7.9);
@@ -75,8 +86,18 @@ function randomCaW() {
     return ans;
 }
 
+// start game
+
 function start() {
-    createblock(8);
+    createblock(8);            
+    
+// first create 8 blocks,
+// then start the interval to check input words.
+// If player press spacebar, get the input word.
+// If the input word match any of words in blocklist, remove block and the word in blocklist,
+// add to score the length of the right word.
+// If it does not match any words, decrease the score by half of the length of the input word.
+
     inputupdate = setInterval(function() {
         var text = document.getElementById("typetext");
         var check;
@@ -99,6 +120,9 @@ function start() {
                 incorrectword ++; 
                 score -= Math.floor(check.length/2);
             }
+
+// display the number of right words and wrong words
+
             $('#correct').text("Words: " + String(correctword));
             $('#incorrect').text("Mistakes: " + String(incorrectword)); 
             $('#correctnum').text("Words: " + String(correctword));
@@ -106,6 +130,9 @@ function start() {
             text.value = "";
         }
     }, 1)
+
+// start the interval to check whether the game is over
+// if yes, display the board to show the result, button to play again and button to be back to main menu
 
     checkstate = setInterval(function() {
         var bl = document.getElementsByClassName("block");
@@ -140,6 +167,8 @@ function start() {
     }, 1)
 }
 
+// function to create a block with random color and random word
+
 function createbl() {
     var caw = randomCaW();
     var block = document.createElement("div");
@@ -157,6 +186,9 @@ function createbl() {
     plg.appendChild(block);
 }
 
+// function to start an interval to check the number of block on screen
+// if there are less than 8 blocks, create until there are 8
+
 function createblock(x) {
     var subtimer = 0;
     cr = setInterval(function() {
@@ -170,7 +202,6 @@ function createblock(x) {
         }
         else {
             var bl = document.getElementsByClassName('block');
-            //$('.block').css('animation-play-state', 'paused');
             bl[0].remove();
             blocklist.shift();
             subcount --;
@@ -178,6 +209,8 @@ function createblock(x) {
         subtimer ++;
     }, 10);
 }
+
+// if you press the main menu button when the game is over
 
 function mainmenu() {
     document.getElementById("playButton").style.display = "block";
@@ -188,6 +221,7 @@ function mainmenu() {
 }
 
 /************************************************************************************/
+/* main screen */
 
 function guide() {
     if (!mainbuttap) {
@@ -237,12 +271,12 @@ function changebackground() {
 function choosebg(x) {
     if (x == 1) {
         bgnum ++;
-        if (bgnum > 2) bgnum = 1;
+        if (bgnum > 3) bgnum = 1;
         document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
     }
     if (x == -1) {
         bgnum --;
-        if (bgnum < 1) bgnum = 2;
+        if (bgnum < 1) bgnum = 3;
         document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
     }
 }
@@ -277,5 +311,24 @@ function sandm(x) {
 }
 
 /************************************************************************************/
+/* sound and music */
 
+var soundcheck = setInterval(function() {
+    $('.mainbutton').hover(function() {
+        $('#buttonhover')[0].play();
+    }, function() {
+        $('#buttonhover')[0].pause();
+    });
+    $('.optionbutton').hover(function() {
+        $('#buttonhover')[0].play();
+    }, function() {
+        $('#buttonhover')[0].pause();
+    });
 
+    $('.mainbutton').click(function() {
+        $('#buttonclick')[0].play();
+    });
+    $('.optionbutton').click(function() {
+        $('#buttonclick')[0].play();
+    });
+}, 1);
