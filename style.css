@@ -11,7 +11,7 @@
 #playButton {
     width: 200px;
     height: 60px;
-    background: #BFBD9F;
+    background: #B8CED3;
     border-radius: 20px;
     border-style: solid;
     border-width: 6px;
@@ -29,7 +29,7 @@
 }
 
 #playButton:hover {
-    background: #B8CED3;
+    background: #C0EBE7;
     width: 220px;
     height: 80px;
     padding-top: 20px;
@@ -42,7 +42,7 @@
 .langbut {
     width: 300px;
     height: 50px;
-    background: #BFBD9F;
+    background: #B8CED3;
     border-radius: 20px;
     border-style: solid;
     border-width: 6px;
@@ -59,7 +59,7 @@
 }
 
 .langbut:hover {
-    background: #B8CED3;
+    background: #C0EBE7;
     width: 320px;
     height: 60px;
     cursor: pointer;
@@ -103,7 +103,7 @@
 #inputbox {
     width: 320px;
     height: 80px;
-    background-color: #BFBD9F;
+    background-color: #B8CED3;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
@@ -115,7 +115,7 @@
 
 #typetext {
     font-family: 'MontserratFont';
-    background-color: #BFBD9F;
+    background-color: #B8CED3;
     width: 300px;
     height: 70px;
     position: absolute;
@@ -129,7 +129,7 @@
 .point {
     width: 720px;
     height: 60px;
-    background-color: #BFBD9F;
+    background-color: #B8CED3;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
