@@ -3,6 +3,11 @@
     src: url('./Resources/Font/NEWACADEMY.ttf');
 }
 
+@font-face {
+    font-family: MontserratFont;
+    src: url('./Resources/Font/Montserrat-Medium.ttf')
+}
+
 #playButton {
     width: 200px;
     height: 60px;
@@ -77,9 +82,9 @@
 }
 
 .blocktext {
-    font-family: 'montserrat';
+    font-family: 'MontserratFont';
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -109,7 +114,7 @@
 }
 
 #typetext {
-    font-family: 'montserrat';
+    font-family: 'MontserratFont';
     background-color: #BFBD9F;
     width: 300px;
     height: 70px;
@@ -135,7 +140,7 @@
 
 #correct {
     width: 190px;
-    font-family: 'montserrat';
+    font-family: 'MontserratFont';
     font-size: 24px;
     font-weight: bold;
     position: absolute;
@@ -144,7 +149,7 @@
 
 #incorrect {
     width: 190px;
-    font-family: 'montserrat';
+    font-family: 'MontserratFont';
     font-size: 24px;
     font-weight: bold;
     position: absolute;
