@@ -11,7 +11,22 @@
 	<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body background=".\Resources\Background\1.png" style="background-size: 100vw 100vh;">
-    <div id="playButton" onclick="chooselang();">PLAY</div>
+    <audio id="blocksound" preload="metadata">
+        <source src="Resources/Sound/gunshot.mp3"></source>
+    </audio>
+    <div id="mainground">
+        <div id="playButton" class="mainbutton" style="top: 25%;" onclick="chooselang();">PLAY</div>
+        <div id="guideButton" class="mainbutton" style="top: 40%;" onclick="guide();">GUIDE</div>
+        <div id="options">
+            <div id="optionButton" class="mainbutton" style="top: 55%;" onclick="option();">OPTION</div>
+            <div id="changebackground" class="optionbutton" style="display: none;" onclick="changebackground();">BACKGROUND</div>
+            <div id="next" class="optionbutton" style="display: none" onclick="choosebg(1);">NEXT</div>
+            <div id="previous" class="optionbutton" style="display: none" onclick="choosebg(-1);">PREVIOUS</div>
+            <div id="sound" class="optionbutton" style="display:none" onclick="sound();">SOUND</div>
+            <div id="soundbut" class="optionbutton" style="display: none" onclick="sandm(1);">SOUND: ON</div>
+            <div id="musicbut" class="optionbutton" style="display: none" onclick="sandm(-1);">MUSIC: ON</div>
+        </div>
+    </div>
     <div id="chooselanguage" style="display:none;">
         <div id="eng" class="langbut" style="top:40%;" onclick="language(0);play();">ENGLISH</div>
         <div id="vie" class="langbut" style="top:55%;" onclick="language(1);play();">VIETNAMESE</div>

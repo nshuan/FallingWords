@@ -13,9 +13,17 @@ var over = true;
 var inputupdate;
 var checkstate;
 var cr;
+var mainbuttap = false;
+var opbuttap = false;
+var smbuttap = false;
+var bgnum = 1;
+var soundon = true;
+var musicon = true;
 
 function chooselang() {
     document.getElementById("playButton").style.display = "none";
+    document.getElementById("guideButton").style.display = "none";
+    document.getElementById("optionButton").style.display = "none";
     document.getElementById("chooselanguage").style.display = "block";
 }
 
@@ -83,6 +91,7 @@ function start() {
                     correctword ++;
                     score += check.length;
                     check = "0";
+                    $('#blocksound')[0].play();
                     break;
                 }
             }
@@ -172,6 +181,97 @@ function createblock(x) {
 
 function mainmenu() {
     document.getElementById("playButton").style.display = "block";
+    document.getElementById("guideButton").style.display = "block";
+    document.getElementById("optionButton").style.display = "block";
     document.getElementById("playground").style.display = "none";
     document.getElementById("gameover").style.display = "none";
 }
+
+/************************************************************************************/
+
+function guide() {
+    if (!mainbuttap) {
+        $('#playButton').css('display', 'none');
+        $('#optionButton').css('display', 'none');
+        $('#guideButton').css('animation', 'mainbut 0.5s 1 both');
+    }
+    else {
+        $('#playButton').css('display', 'block');
+        $('#optionButton').css('display', 'block');
+        $('#guideButton').css({'animation-direction': 'reverse', 'animation': '', });
+    }
+    mainbuttap = !mainbuttap;
+}
+
+function option() {
+    if (!mainbuttap) {
+        $('#playButton').css('display', 'none');
+        $('#guideButton').css('display', 'none');
+        $('#optionButton').css('animation', 'mainbut 0.5s 1 both');
+        document.getElementById("changebackground").style.display = "block";
+        document.getElementById("sound").style.display = "block";
+    }
+    else {
+        $('#playButton').css('display', 'block');
+        $('#guideButton').css('display', 'block');
+        $('#optionButton').css({'animation-direction': 'reverse', 'animation': ''});
+        $('.optionbutton').hide();
+        opbuttap = false;
+        smbuttap = false;
+    }
+    mainbuttap = !mainbuttap;
+}
+
+function changebackground() {
+    if (!opbuttap) {
+        document.getElementById("next").style.display = "block";
+        document.getElementById("previous").style.display = "block";
+    }
+    else {
+        document.getElementById("next").style.display = "none";
+        document.getElementById("previous").style.display = "none";
+    }
+    opbuttap = !opbuttap;
+}
+
+function choosebg(x) {
+    if (x == 1) {
+        bgnum ++;
+        if (bgnum > 2) bgnum = 1;
+        document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
+    }
+    if (x == -1) {
+        bgnum --;
+        if (bgnum < 1) bgnum = 2;
+        document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
+    }
+}
+
+function sound() {
+    if (!smbuttap) {
+        document.getElementById("soundbut").style.display = "block";
+        document.getElementById("musicbut").style.display = "block";
+    }
+    else {
+        document.getElementById("soundbut").style.display = "none";
+        document.getElementById("musicbut").style.display = "none";
+    }
+    smbuttap = !smbuttap;
+}
+
+function sandm(x) {
+    if (x == 1) {
+        soundon = !soundon;
+        if (soundon) document.getElementById('soundbut').innerHTML = "SOUND: ON";
+        else document.getElementById('soundbut').innerHTML = "SOUND: OFF";
+    }
+    if (x == -1) {
+        musicon = !musicon;
+        if (musicon) document.getElementById('musicbut').innerHTML = "MUSIC: ON";
+        else document.getElementById('musicbut').innerHTML = "MUSIC: OFF";
+    }
+}
+
+/************************************************************************************/
+
+
