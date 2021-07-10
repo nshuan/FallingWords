@@ -1,3 +1,8 @@
+@font-face {
+    font-family: newacademy;
+    src: url('./Resources/Font/NEWACADEMY.ttf');
+}
+
 #playButton {
     width: 200px;
     height: 60px;
@@ -11,8 +16,8 @@
     top: 40%;
     transition: 0.3s;
 
-    font-size: 36px;
-    font-family: 'montserrat';
+    font-size: 42px;
+    font-family: 'newacademy';
     font-weight: bold;
     text-align: center;
     padding-top: 16px;
@@ -22,15 +27,16 @@
     background: #B8CED3;
     width: 220px;
     height: 80px;
+    padding-top: 20px;
     cursor: pointer;
     transition: 0.3s;
     
-    font-size: 40px;
+    font-size: 48px;
 }
 
 .langbut {
-    width: 200px;
-    height: 40px;
+    width: 300px;
+    height: 50px;
     background: #BFBD9F;
     border-radius: 20px;
     border-style: solid;
@@ -41,31 +47,20 @@
     transition: 0.3s;
 
     font-size: 32px;
-    font-family: 'montserrat';
+    font-family: 'newacademy';
     font-weight: bold;
     text-align: center;
-    padding-top: 4px;
+    padding-top: 8px;
 }
 
 .langbut:hover {
     background: #B8CED3;
-    width: 220px;
+    width: 320px;
     height: 60px;
     cursor: pointer;
     transition: 0.3s;
     
     font-size: 36px;
-}
-
-#playButtonText {
-    font-size: 36px;
-    font-family: 'montserrat';
-    font-weight: bold;
-    position: absolute;
-    margin: 0;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
 }
 
 .block {
@@ -82,6 +77,9 @@
 }
 
 .blocktext {
+    font-family: 'montserrat';
+    font-weight: bold;
+    font-size: 20px;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -111,6 +109,7 @@
 }
 
 #typetext {
+    font-family: 'montserrat';
     background-color: #BFBD9F;
     width: 300px;
     height: 70px;
@@ -167,7 +166,7 @@
 }
 
 .gameovertext {
-    font-family: 'montserrat';
+    font-family: 'newacademy';
     text-align: center;
     position: relative;
     transform: translate(-50%, -50%);
@@ -177,7 +176,7 @@
 #gameovertext {
     font-size: 42px;
     font-weight: 900;
-    color: red;
+    color: #A6372D;
     left: 50%;
     top: 5%;
     animation: textappear 0.5s 0.5s;
@@ -185,9 +184,9 @@
 }
 
 #score {
-    font-size: 56px;
+    font-size: 64px;
     font-weight: 900;
-    color: green;
+    color: #2DA663;
     left: 50%;
     margin: 0;
     animation: textappear 0.5s 1s;
@@ -209,44 +208,51 @@
     font-weight: 900;
     color: black;
     left: 50%;
+    margin: 5px;
     animation: textappear 0.5s 1s;
     animation-fill-mode: both;
+}
+
+#buttonpane {
+    width: 320px;
+    height: 40px;
+    background: transparent;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 8%;
+    left: 50%;
 }
 
 .gameoverbutton {
     width: 160px;
     height: 40px;
     background: #B8CED3;
-    border-style: solid;
-    border-width: 4px;
-    position: absolute;
+    /*position: absolute;*/
 
-    font-size: 24px;
-    font-family: 'montserrat';
+    font-size: 20px;
+    font-family: 'newacademy';
     font-weight: bold;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 12px;
+
+    transition: 0.3s;
 }
 
 #playagain {
     border-radius: 10px 0 0 10px;
-    transform: translate(-100%, -50%);
-    bottom: 2%;
-    left: 50%;
-    transition: 0.3s;
+    border-style: solid;
+    border-width: 4px 2px 4px 4px;
 }
 
 #mainmenu {
     border-radius: 0 10px 10px 0;
-    transform: translate(0%, -50%);
-    bottom: 2%;
-    left: 50%;
-    transition: 0.3s;
+    border-style: solid;
+    border-width: 4px 4px 4px 2px;
 }
 
 .gameoverbutton:hover {
     cursor: pointer;
-    background: #BFBD9F;
+    background: #2DA663;
     transition: 0.3s;
 }
 

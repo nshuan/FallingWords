@@ -12,8 +12,8 @@
 <body background=".\Resources\Background\1.png" style="background-size: 100vw 100vh;">
     <div id="playButton" onclick="chooselang();">PLAY</div>
     <div id="chooselanguage" style="display:none;">
-        <div id="eng" class="langbut" style="top:40%;" onclick="language(0);play();">English</div>
-        <div id="vie" class="langbut" style="top:60%;" onclick="language(1);play();">Tiếng Việt</div>
+        <div id="eng" class="langbut" style="top:40%;" onclick="language(0);play();">ENGLISH</div>
+        <div id="vie" class="langbut" style="top:55%;" onclick="language(1);play();">VIETNAMESE</div>
     </div>
     <div id="playground" style="display:none;"></div>
     <div id="scorebar" style="display:none;">
@@ -28,10 +28,12 @@
     <div id="gameover" style="display:none;">
         <p id="gameovertext" class="gameovertext">GAME OVER</p>
         <p id="score" class="gameovertext"></p>
-        <p id="correctnum" class="gameovertext">Words: 0</p>
-        <p id="incorrectnum" class="gameovertext">Mistakes: 0</p>
-        <div id="playagain" class="gameoverbutton" onclick="play();">Play again</div>
-        <div id="mainmenu" class="gameoverbutton" onclick="mainmenu();">Main menu</div>
+        <p id="correctnum" class="gameovertext">WORDS: 0</p>
+        <p id="incorrectnum" class="gameovertext">MISTAKES: 0</p>
+        <div id="buttonpane" style="display: flex">
+            <div id="playagain" class="gameoverbutton" onclick="play();">PLAY AGAIN</div>
+            <div id="mainmenu" class="gameoverbutton" onclick="mainmenu();">MAIN MENU</div>
+        </div>
     </div>
 </body>
 </html>

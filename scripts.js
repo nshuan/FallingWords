@@ -26,6 +26,7 @@ function play() {
     incorrectword = 0;
     score = 0;
     over = false;
+    document.getElementById('typetext').value = "";
     document.getElementById("gameover").style.display = "none";
     $('#correct').text("Words: 0");
     $('#incorrect').text("Mistakes: 0"); 
@@ -110,6 +111,20 @@ function start() {
             clearInterval(cr);
             clearInterval(inputupdate);
             over = true;
+            $('#playagain').hover(function() {
+                $('#mainmenu').css({'font-size': '0px', 'width': '40px'});
+                $('#playagain').css('width', '280px');
+            }, function() {
+                $('#mainmenu').css({'font-size': '20px', 'width': '160px'});
+                $('#playagain').css('width', '160px');
+            })
+            $('#mainmenu').hover(function() {
+                $('#playagain').css({'font-size': '0px', 'width': '40px'});
+                $('#mainmenu').css('width', '280px');
+            }, function() {
+                $('#playagain').css({'font-size': '20px', 'width': '160px'});
+                $('#mainmenu').css('width', '160px');
+            })
         }
     }, 1)
 }

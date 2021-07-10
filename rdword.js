@@ -10,6 +10,7 @@ var hook = 0;
 
 function language(x) {
     wlist = [];
+    hook = 0;
     if (x == 0) paragraph = paragraph1;
     else paragraph = paragraph2;
     splitwords();
