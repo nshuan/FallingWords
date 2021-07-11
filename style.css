@@ -8,6 +8,23 @@
     src: url('./Resources/Font/Montserrat-Medium.ttf')
 }
 
+#loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2A52BE;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    opacity: 0.6;
+}
+
+#loadingtext {
+    font-size: 32px;
+    font-family: 'newacademy';
+    text-align: center;
+}
+
 .mainbutton {
     width: 280px;
     height: 60px;

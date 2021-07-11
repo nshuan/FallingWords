@@ -11,9 +11,11 @@
 	<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body background=".\Resources\Background\1.png"style="background-size: 100vw 100vh;">
+    <div id="backgroundmusic">
+        <audio id="bgmusic" preload="auto" src="Resources/Sound/bgmusic1.mp3"></audio>
+    </div>
     <div id="audio"></div>
-        <audio id="blocksound" preload="metadata">
-            <source src="Resources/Sound/gunshot.mp3"></source>
+        <audio id="blocksound" preload="metadata" src="Resources/Sound/blocksound1.mp3">
         </audio>
         <audio id="buttonhover" preload="metadata">
             <source src="Resources/Sound/button.mp3"></source>
@@ -59,8 +61,16 @@
             <div id="mainmenu" class="gameoverbutton" onclick="mainmenu();">MAIN MENU</div>
         </div>
     </div>
+    <div id="loading">
+        <p id="loadingtext">LOADING, PLEASE WAIT...</p>
+    </div>
     <script>
         if (screen.width < screen.height) alert("Play on your computer for best experiences!")
+        $(document).ready(function() {
+            $('#loading').hide();
+            $('#bgmusic')[0].play();
+            document.getElementById('bgmusic').volume = 0.5;
+        });
     </script>
 </body>
 </html>

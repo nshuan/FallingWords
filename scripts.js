@@ -15,6 +15,10 @@ var mainbuttap = false;     // check click events of buttons on main screen
 var opbuttap = false;       // check click events of buttons on OPTION screen
 var smbuttap = false;       // check click events of buttons on OPTION/SOUND screen
 var bgnum = 1;              // background
+var maxbg = 6;              // max number of background
+var blockcolorlist = [["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"]]
+                            // list of word block colors: blockcolorlist[i] is list of colors that will be
+                            // applied to the theme with background number i
 var soundon = true;         
 var musicon = true;
 
@@ -69,14 +73,14 @@ function randomCaW() {
     var colornum = Math.floor(Math.random() * 7.9);
     var color;
     switch (colornum) {
-        case 0: color = "#AEB9D4"; break;
-        case 1: color = "#D4ACA3"; break;
-        case 2: color = "#D4C5A3"; break;
-        case 3: color = "#AED4C6"; break;
-        case 4: color = "#688187"; break;
-        case 5: color = "#D4A3B6"; break;
-        case 6: color = "#D4CFA3"; break;
-        case 7: color = "#87856F"; break;
+        case 0: color = blockcolorlist[bgnum-1][0]; break;
+        case 1: color = blockcolorlist[bgnum-1][1]; break;
+        case 2: color = blockcolorlist[bgnum-1][2]; break;
+        case 3: color = blockcolorlist[bgnum-1][3]; break;
+        case 4: color = blockcolorlist[bgnum-1][4]; break;
+        case 5: color = blockcolorlist[bgnum-1][5]; break;
+        case 6: color = blockcolorlist[bgnum-1][6]; break;
+        case 7: color = blockcolorlist[bgnum-1][7]; break;
     }
     var wordnum = Math.floor(Math.random()*wlist.length);
     var word = wlist[wordnum];
@@ -271,14 +275,17 @@ function changebackground() {
 function choosebg(x) {
     if (x == 1) {
         bgnum ++;
-        if (bgnum > 3) bgnum = 1;
-        document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
+        if (bgnum > maxbg) bgnum = 1;
     }
     if (x == -1) {
         bgnum --;
-        if (bgnum < 1) bgnum = 3;
-        document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png"
+        if (bgnum < 1) bgnum = maxbg;
     }
+    document.body.background = ".\\Resources\\Background\\" + String(bgnum) + ".png";
+    document.getElementById('blocksound').setAttribute('src', 'Resources/Sound/blocksound' + String(bgnum) +'.mp3');
+    document.getElementById('bgmusic').setAttribute('src', 'Resources/Sound/bgmusic' + String(bgnum) +'.mp3');
+    document.getElementById('bgmusic').volume = 0.6;
+    if (musicon) $('#bgmusic')[0].play();
 }
 
 function sound() {
@@ -298,15 +305,28 @@ function sandm(x) {
         soundon = !soundon;
         if (soundon) {
             document.getElementById('soundbut').innerHTML = "SOUND: ON";
+            document.getElementById('blocksound').volume = 1.0;
+            document.getElementById('buttonhover').volume = 1.0;
+            document.getElementById('buttonclick').volume = 1.0;
         }
         else {
             document.getElementById('soundbut').innerHTML = "SOUND: OFF";
+            document.getElementById('blocksound').volume = 0;
+            document.getElementById('buttonhover').volume = 0;
+            document.getElementById('buttonclick').volume = 0;
         }
     }
     if (x == -1) {
         musicon = !musicon;
-        if (musicon) document.getElementById('musicbut').innerHTML = "MUSIC: ON";
-        else document.getElementById('musicbut').innerHTML = "MUSIC: OFF";
+        if (musicon) {
+            document.getElementById('musicbut').innerHTML = "MUSIC: ON";
+            document.getElementById('bgmusic').volume = 0.6;
+            $('#bgmusic')[0].play();
+        }
+        else {
+            document.getElementById('musicbut').innerHTML = "MUSIC: OFF";
+            document.getElementById('bgmusic').volume = 0;
+        }
     }
 }
 
@@ -316,13 +336,9 @@ function sandm(x) {
 var soundcheck = setInterval(function() {
     $('.mainbutton').hover(function() {
         $('#buttonhover')[0].play();
-    }, function() {
-        $('#buttonhover')[0].pause();
     });
     $('.optionbutton').hover(function() {
         $('#buttonhover')[0].play();
-    }, function() {
-        $('#buttonhover')[0].pause();
     });
 
     $('.mainbutton').click(function() {
