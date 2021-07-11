@@ -12,7 +12,7 @@
 </head>
 <body background=".\Resources\Background\1.png"style="background-size: 100vw 100vh;">
     <div id="backgroundmusic">
-        <audio id="bgmusic" preload="auto" src="Resources/Sound/bgmusic1.mp3"></audio>
+        <audio id="bgmusic" preload="auto" src="Resources/Sound/bgmusic1.mp3" loop></audio>
     </div>
     <div id="audio"></div>
         <audio id="blocksound" preload="metadata" src="Resources/Sound/blocksound1.mp3">
@@ -26,7 +26,16 @@
     </div>
     <div id="mainground">
         <div id="playButton" class="mainbutton" style="top: 25%;" onclick="chooselang();">PLAY</div>
-        <div id="guideButton" class="mainbutton" style="top: 40%;" onclick="guide();">GUIDE</div>
+        <div id="guide">
+            <div id="guideButton" class="mainbutton" style="top: 40%;" onclick="guide();">GUIDE</div>
+            <div id="guidecontent" style="display: none;">
+                <p class="guidetext">Prevent a block from landing by typing the right word</p>
+                <p class="guidetext">Each right word you get the score equally to the number of characters of the right word</p>
+                <p class="guidetext">Each wrong word your score is decreased by half of the number of characters of the right word</p>
+                <p class="guidetext">Choose OPTION to change theme and sound settings</p>
+                <p class="guidetext">RECOMMEND: TURN ON YOUR VOLUME FOR BETTER EXPERIENCES !</p>
+            </div>
+        </div>
         <div id="options">
             <div id="optionButton" class="mainbutton" style="top: 55%;" onclick="option();">OPTION</div>
             <div id="changebackground" class="optionbutton" style="display: none;" onclick="changebackground();">THEME</div>

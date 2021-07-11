@@ -16,7 +16,7 @@ var opbuttap = false;       // check click events of buttons on OPTION screen
 var smbuttap = false;       // check click events of buttons on OPTION/SOUND screen
 var bgnum = 1;              // background
 var maxbg = 6;              // max number of background
-var blockcolorlist = [["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"]]
+var blockcolorlist = [["#AEB9D4", "#D4ACA3", "#D4C5A3", "#AED4C6", "#688187", "#D4A3B6", "#D4CFA3", "#87856F"], ["#F2B177", "#83F28B", "#6A518A", "#F25E95", "#A64C38", "#C7F283", "#D69495", "#8A6666"], ["#C0D6B4", "#BFC1D6", "#D4C5A3", "#D6CA9F", "#8A895F", "#BFCDD6", "#D4CFA3", "#87856F"], ["#B5BFA8", "#8C97BF", "#B88CBF", "#BFB495", "#737154", "#8CB2BF", "#BF8C99", "#735A60"], ["#416634", "#393A66", "#66255F", "#665A2A", "#AFB340", "#395266", "#662725", "#B34D49"], ["#E1E6F2", "#F2DBD5", "#F2EAD5", "#DAF2EA", "#92A2A6", "#F2D5DF", "#F2F0D5", "#A6A495"]]
                             // list of word block colors: blockcolorlist[i] is list of colors that will be
                             // applied to the theme with background number i
 var soundon = true;         
@@ -232,11 +232,13 @@ function guide() {
         $('#playButton').css('display', 'none');
         $('#optionButton').css('display', 'none');
         $('#guideButton').css('animation', 'mainbut 0.5s 1 both');
+        document.getElementById('guidecontent').style.display = "block";
     }
     else {
         $('#playButton').css('display', 'block');
         $('#optionButton').css('display', 'block');
-        $('#guideButton').css({'animation-direction': 'reverse', 'animation': '', });
+        $('#guideButton').css({'animation-direction': 'reverse', 'animation': ''});
+        document.getElementById('guidecontent').style.display = "none";
     }
     mainbuttap = !mainbuttap;
 }

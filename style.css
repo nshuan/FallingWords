@@ -136,6 +136,32 @@
     animation: previous 0.5s 0s both;
 }
 
+#guidecontent {
+    width: 560px;
+    height: 240px;
+    background: #B8CED3;
+    opacity: 0;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 6px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 52%;
+    padding-left: 16px;
+    padding-right: 16px;
+    animation: display 1s 0.5s both;
+}
+
+.guidetext {
+    font-size: 16px;
+    font-family: 'MontserratFont';
+    font-weight: bold;
+    text-align: center;
+    padding-top: 16px;
+    margin: 0px;
+}
+
 .langbut {
     width: 300px;
     height: 50px;
