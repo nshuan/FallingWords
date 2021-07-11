@@ -142,8 +142,6 @@ function start() {
         var bl = document.getElementsByClassName("block");
         var gameoverboard = document.getElementById("gameover");
         var scoreshow = document.getElementById("score");
-        var correshow = document.getElementById("correctnum");
-        var incorshow = document.getElementById("incorrectnum");
         if (bl[0].offsetTop == "-50" && over == false) {
             $('.block').css('animation-play-state', 'paused');
             gameoverboard.style.display = "block";
@@ -335,7 +333,7 @@ function sandm(x) {
 /************************************************************************************/
 /* sound and music */
 
-var soundcheck = setInterval(function() {
+$(document).ready(function() {
     $('.mainbutton').hover(function() {
         $('#buttonhover')[0].play();
     });
@@ -361,4 +359,4 @@ var soundcheck = setInterval(function() {
     $('.gameoverbutton').click(function() {
         $('#buttonclick')[0].play();
     });
-}, 1);
+});
