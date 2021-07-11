@@ -340,11 +340,23 @@ var soundcheck = setInterval(function() {
     $('.optionbutton').hover(function() {
         $('#buttonhover')[0].play();
     });
+    $('.langbut').hover(function() {
+        $('#buttonhover')[0].play();
+    });
+    $('.gameoverbutton').hover(function() {
+        $('#buttonhover')[0].play();
+    });
 
     $('.mainbutton').click(function() {
         $('#buttonclick')[0].play();
     });
     $('.optionbutton').click(function() {
+        $('#buttonclick')[0].play();
+    });
+    $('.langbut').click(function() {
+        $('#buttonclick')[0].play();
+    });
+    $('.gameoverbutton').click(function() {
         $('#buttonclick')[0].play();
     });
 }, 1);
